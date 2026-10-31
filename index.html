@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ed">
+  <meta name="description" content="Vaishnavi Mane is a first-year Artificial Intelligence and Data Science student who loves technology, problem solving, and building for the web.">
+  <title>Vaishnavi Mane | Dream, Design, Develop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f4ed;
+      --ink: #192b25;
+      --muted: #64716b;
+      --green: #245c46;
+      --lime: #d3ef75;
+      --line: #d9ddd3;
+      --orange: #e87955;
+      --display: "Space Grotesk", sans-serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .monogram {
+      display: inline-grid;
+      width: 38px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font: 600 13px var(--display);
+      text-decoration: none;
+    }
+    nav { display: flex; align-items: center; gap: 34px; }
+    nav a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--green); }
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 570px;
+      align-items: center;
+      overflow: hidden;
+      padding-block: 74px 95px;
+    }
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      top: 50px;
+      right: -85px;
+      width: 490px;
+      aspect-ratio: 1;
+      border: 1px solid #dfe1d5;
+      border-radius: 50%;
+      content: "";
+    }
+    .hero-copy { position: relative; z-index: 1; max-width: 700px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 23px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 22px; height: 2px; background: var(--orange); content: ""; }
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      max-width: 680px;
+      margin-bottom: 18px;
+      font: 600 clamp(54px, 8vw, 94px)/0.99 var(--display);
+      letter-spacing: 0;
+    }
+    h1 span { color: var(--green); }
+    .tagline {
+      margin-bottom: 22px;
+      color: var(--orange);
+      font: 600 17px var(--display);
+    }
+    .hero-intro { max-width: 430px; margin-bottom: 30px; color: var(--muted); font-size: 16px; line-height: 1.75; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      gap: 14px;
+      padding: 0 19px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease;
+    }
+    .button:hover { background: transparent; color: var(--ink); }
+    .button svg { width: 15px; height: 15px; }
+    .hero-photo {
+      position: absolute;
+      z-index: 0;
+      top: 56px;
+      right: 0;
+      width: 41%;
+      height: 395px;
+      overflow: hidden;
+      background: #dce5d8;
+      clip-path: polygon(16% 0, 100% 0, 100% 84%, 80% 100%, 0 100%, 0 18%);
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+    .photo-note {
+      position: absolute;
+      right: 0;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .photo-note::before { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); content: ""; }
+    .scroll-cue {
+      position: absolute;
+      bottom: 27px;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .scroll-cue span { color: var(--orange); font-size: 17px; }
+    .section { border-top: 1px solid var(--line); padding-block: 83px; }
+    .section-label { margin-bottom: 14px; color: var(--green); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+    .section h2 { margin-bottom: 0; font: 600 clamp(34px, 5vw, 54px)/1.08 var(--display); letter-spacing: 0; }
+    .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 70px; align-items: start; }
+    .about-copy { max-width: 540px; padding-top: 9px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .interests { background: var(--ink); color: var(--paper); }
+    .interests .section-label { color: var(--lime); }
+    .interest-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+    .interest-heading p { max-width: 290px; margin-bottom: 5px; color: #b6c1b9; font-size: 14px; line-height: 1.7; }
+    .interest-list { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #43534b; }
+    .interest-item {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid #43534b;
+      font: 500 18px var(--display);
+    }
+    .interest-item:nth-child(odd) { margin-right: 34px; }
+    .interest-item:nth-child(even) { padding-left: 34px; border-left: 1px solid #43534b; }
+    .interest-item span { color: var(--lime); font: 500 12px var(--body); }
+    .goal-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 70px; align-items: start; }
+    .goal-copy { max-width: 550px; padding-top: 9px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .goal-statement { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--green); font: 600 16px var(--display); }
+    footer { background: var(--lime); }
+    .footer-inner { display: flex; min-height: 210px; align-items: center; justify-content: space-between; gap: 28px; }
+    .footer-inner .section-label { color: var(--green); }
+    .footer-inner h2 { margin-bottom: 0; font: 600 clamp(32px, 5vw, 54px)/1.04 var(--display); }
+    .footer-mark { display: grid; width: 56px; aspect-ratio: 1; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font: 600 16px var(--display); }
+    .copyright { padding-block: 16px; border-top: 1px solid #b7cf69; color: #4a6040; font-size: 11px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .topbar { height: 66px; }
+      nav { gap: 17px; }
+      nav a { font-size: 12px; }
+      .hero { min-height: auto; padding-block: 50px 74px; }
+      .hero-photo { position: relative; top: auto; right: auto; width: 100%; height: 260px; margin-top: 38px; }
+      .hero::after { top: 365px; right: -190px; width: 330px; }
+      h1 { font-size: clamp(52px, 13vw, 76px); }
+      .hero-intro { max-width: 430px; }
+      .photo-note { bottom: 22px; }
+      .scroll-cue { bottom: 17px; }
+      .section { padding-block: 62px; }
+      .about-grid, .goal-grid { grid-template-columns: 1fr; gap: 23px; }
+      .about-copy, .goal-copy { padding-top: 0; font-size: 16px; }
+      .interest-heading { display: block; margin-bottom: 25px; }
+      .interest-heading p { margin-top: 18px; }
+      .interest-item { min-height: 78px; font-size: 15px; }
+      .interest-item:nth-child(odd) { margin-right: 13px; }
+      .interest-item:nth-child(even) { padding-left: 13px; }
+      .footer-inner { min-height: 180px; }
+    }
+    @media (max-width: 390px) {
+      .wrap { width: calc(100% - 28px); }
+      nav { gap: 12px; }
+      nav a { font-size: 11px; }
+      .interest-item { gap: 10px; font-size: 14px; }
+      .interest-item:nth-child(odd) { margin-right: 8px; }
+      .interest-item:nth-child(even) { padding-left: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="monogram" href="#home" aria-label="Vaishnavi Mane, home">VM</a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#interests">Interests</a>
+      <a href="#goals">Goals</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">AI &amp; Data Science Student</p>
+        <h1 id="hero-title">Vaishnavi<br><span>Mane.</span></h1>
+        <p class="tagline">Dream. Design. Develop.</p>
+        <p class="hero-intro">Curious about technology, excited by what I can create, and just getting started.</p>
+        <a class="button" href="#about">A little about me
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <figure class="hero-photo">
+        <img src="img.png" alt="Portrait of Vaishnavi Mane wearing a black blazer and white shirt" fetchpriority="high">
+      </figure>
+      <a class="scroll-cue" href="#about"><span aria-hidden="true">↓</span> Keep exploring</a>
+      <div class="photo-note">Hello, I’m Vaishnavi</div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="section-label">01 / A little about me</p>
+          <h2>Curious by nature.<br>Building what's next.</h2>
+        </div>
+        <div class="about-copy">
+          <p>I’m a first-year Artificial Intelligence and Data Science student who enjoys learning new things, exploring technology, and steadily growing my skills.</p>
+          <p>Every new concept is a chance to ask better questions, try something hands-on, and discover what I might build next.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section interests" id="interests">
+      <div class="wrap">
+        <div class="interest-heading">
+          <div>
+            <p class="section-label">02 / What draws me in</p>
+            <h2>Things I love<br>to explore.</h2>
+          </div>
+          <p>A few of the subjects that keep me curious and make me want to learn more.</p>
+        </div>
+        <div class="interest-list">
+          <div class="interest-item"><span>01</span> Programming &amp; software</div>
+          <div class="interest-item"><span>02</span> Web development</div>
+          <div class="interest-item"><span>03</span> Computer technology</div>
+          <div class="interest-item"><span>04</span> Logical thinking &amp; problem solving</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="goals">
+      <div class="wrap goal-grid">
+        <div>
+          <p class="section-label">03 / Looking ahead</p>
+          <h2>One step,<br>then another.</h2>
+        </div>
+        <div class="goal-copy">
+          <p>My goal is to strengthen my technical knowledge, gain practical experience, and develop useful projects throughout my engineering journey.</p>
+          <p>There’s a lot to learn. I’m looking forward to putting in the work and seeing where it leads.</p>
+          <p class="goal-statement">Learning today. Making things tomorrow.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="section-label">Thanks for stopping by</p>
+        <h2>The journey starts here.</h2>
+      </div>
+      <span class="footer-mark" aria-hidden="true">VM</span>
+    </div>
+    <div class="copyright"><div class="wrap">Vaishnavi Mane · AI &amp; Data Science · <span id="year">2026</span></div></div>
+  </footer>
+</body>
+</html>
